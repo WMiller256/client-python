@@ -42,7 +42,8 @@ class WebSocketClient:
         try:
             signal.signal(signal.SIGINT, self._cleanup_signal_handler())
             signal.signal(signal.SIGTERM, self._cleanup_signal_handler())
-        except ValueError:
+        except ValueError as error:
+            print(error.message)
             pass
 
     def run(self):
